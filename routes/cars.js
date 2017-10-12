@@ -3,6 +3,7 @@ const passport = require("passport");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const Car = require('../models/car');
 const User = require('../models/user');
+const authorizeCar = require('../middleware/car-authorization.js')
 const carRoutes  = express.Router();
 
 carRoutes.get('/', (req, res, next) => {
@@ -44,7 +45,7 @@ if (err) {
 });
 
 
-carRoutes.get('/:id', (req, res, next) => {
+carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
    const carId = req.params.id;
 
   Car.findById(carId, (err, car) => {
@@ -53,7 +54,7 @@ carRoutes.get('/:id', (req, res, next) => {
    });
  });
 
-carRoutes.get('/:id/edit', (req, res, next) => {
+carRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
   const carId = req.params.id;
 // console.log("`````````",carId);
   Car.findById(carId, (err, car) => {
@@ -62,7 +63,7 @@ carRoutes.get('/:id/edit', (req, res, next) => {
   })
 })
 
-carRoutes.post('/:id', (req, res, next) => {
+carRoutes.post('/:id', ensureLoggedIn('/login'), authorizeCar,(req, res, next) => {
 
   const carId = req.params.id;
   console.log("`````````",carId);
