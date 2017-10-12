@@ -1,0 +1,22 @@
+<body>
+
+<h1><%= car.carName %></h1>
+
+<h2><%= car.totAllotMiles %></h2>
+
+<h3><%= car.currentOdom %></h3>
+
+<h4> <%= car.currentOdom %></h4>
+
+<h4> <%= car.leaseDurationMonths %></h4>
+
+<h4> <%= car.leaseExpires %></h4>
+
+<a class="btn btn-info" href="/cars/<%= car._id %>/edit" role="button">Edit the Car</a>
+<br>
+<br>
+<form  action="/cars/<%= car._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= car.carName %></button>
+</form>
+
+</body>

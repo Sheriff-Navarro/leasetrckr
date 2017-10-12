@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/signup" method="post">
+        <h1>signup</h1>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>
+        <% if (typeof(errorMessage) != "undefined") { %>
+    <div class="error-message"><%= errorMessage %></div>
+  <% } %>
+        <button class="btn btn-success" type="submit">Signup</button>
+      </form>
+    </div>
+  </div>
+</div>

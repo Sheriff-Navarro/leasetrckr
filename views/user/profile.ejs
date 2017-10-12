@@ -1,0 +1,22 @@
+
+<p>Hello User</p>
+
+<a href="/cars/new">Creat a Car</a>
+
+<% car.forEach((car) => { %>
+
+  <div class="row">
+    <div class = "xs-4-sm">
+    <h4><%= car.carName %></h4>
+    <br>
+    <a class="btn btn-info" href="/cars/<%= car._id %>" role="button">View Car</a>
+    <br>
+    <form  action="/cars/<%= car._id %>/delete" method="post">
+      <button type="submit" name="delete" class=btn btn-danger>Delete <%=car.carName%></button>
+    </form>
+
+    <br>
+    </div>
+</div>
+
+<%  }) %>

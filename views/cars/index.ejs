@@ -1,0 +1,21 @@
+<body>
+  <ul>
+    <% car.forEach((car) => { %>
+
+      <div class="row">
+        <div class = "xs-4-sm">
+        <h4><%= car.carName %></h4>
+        <br>
+        <br>
+        <a class="btn btn-primary" href="/cars/<%= car._id %>/" role="button" method="post">See Car Details</a>
+
+
+        <br>
+        </div>
+    </div>
+
+    <%  }) %>
+  </ul>
+
+
+</body>
