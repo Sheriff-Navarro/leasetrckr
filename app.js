@@ -13,11 +13,14 @@ const expressLayouts     = require('express-ejs-layouts');
 const mongoose           = require('mongoose');
 const authRoutes = require('./routes/authentication.js');
 const carRoutes  = require('./routes/cars.js');
+const userRoutes = require('./routes/users.js');
+const driveRoutes = require('./routes/drives.js');
 const LocalStrategy      = require('passport-local').Strategy;
 const User               = require('./models/user');
+const Drive              = require('./models/drive');
 const Car                = require('./models/car');
 const bcrypt             = require('bcrypt');
-const userRoutes = require('./routes/users.js');
+
 
 mongoose.connect('mongodb://localhost:27017/leasetrckr');
 
@@ -134,6 +137,7 @@ app.use('/', index);
 app.use('/', authRoutes);
 app.use('/', userRoutes);
 app.use('/cars', carRoutes);
+app.use('/drives', driveRoutes);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

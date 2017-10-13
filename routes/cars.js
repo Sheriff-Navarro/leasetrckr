@@ -3,6 +3,7 @@ const passport = require("passport");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const Car = require('../models/car');
 const User = require('../models/user');
+const Drive = require('../models/drive');
 const authorizeCar = require('../middleware/car-authorization.js')
 const carRoutes  = express.Router();
 
