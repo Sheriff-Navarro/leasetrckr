@@ -89,7 +89,7 @@ carRoutes.post('/:id', ensureLoggedIn('/login'), authorizeCar,(req, res, next) =
  });
 
 
- carRoutes.post('/:id/delete', (req, res, next) => {
+ carRoutes.post('/:id/delete', authorizeCar, (req, res, next) => {
    const carId = req.params.id;
 
    Car.findByIdAndRemove(carId, (err, car) => {

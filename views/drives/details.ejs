@@ -1,0 +1,21 @@
+<body>
+
+<h1><%= drive.driveName %></h1>
+
+<h2><%= drive.originAddress %></h2>
+
+<h3><%= drive.destinationAddress %></h3>
+
+<h4> <%= drive.distance %></h4>
+
+<h4> <%= drive.amountTaken %></h4>
+
+
+<a class="btn btn-info" href="/drives/<%= drive._id %>/edit" role="button">Edit the Car</a>
+<br>
+<br>
+<form  action="/drives/<%= drive._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= drive.driveName %></button>
+</form>
+
+</body>

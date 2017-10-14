@@ -1,0 +1,17 @@
+<% drive.forEach((drive) => { %>
+
+  <div class="row">
+    <div class = "xs-4-sm">
+    <h4><%= drive.driveName %></h4>
+    <br>
+    <a class="btn btn-info" href="/drives/<%= drive._id %>" role="button">View Car</a>
+    <br>
+    <form  action="/drives/<%= drive._id %>/delete" method="post">
+      <button type="submit" name="delete" class=btn btn-danger>Delete <%=drive.driveName%></button>
+    </form>
+
+    <br>
+    </div>
+</div>
+
+<%  }) %>

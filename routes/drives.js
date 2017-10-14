@@ -5,12 +5,13 @@ const Car = require('../models/car');
 const User = require('../models/user');
 const Drive = require('../models/drive');
 const authorizeCar = require('../middleware/car-authorization.js')
+const authorizeDrive = require('../middleware/drive-authorization.js')
 const driveRoutes  = express.Router();
 
 
 driveRoutes.get('/', (req, res, next) => {
 
-Drive.find({}, (err, car) => {
+Drive.find({}, (err, drive) => {
     if (err) { return next(err) }
     res.render('drives/index', {
       drive: drive
@@ -44,11 +45,54 @@ if (err) {
 });
 });
 
+driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
+   const driveId = req.params.id;
 
+  Drive.findById(driveId, (err, drive) => {
+     if (err) { return next(err); }
+     res.render('drives/details', {drive: drive});
+   });
+ });
 
+ driveRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
+   const driveId = req.params.id;
+ // console.log("`````````",carId);
+   Drive.findById(driveId, (err, drive) => {
+     if (err) {return next(err); }
+     res.render('drives/edit', {drive: drive});
+   });
+ });
 
+ driveRoutes.post('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
 
+   const driveId = req.params.id;
 
+   /*
+    * Create a new object with all of the information from the request body.
+    * This correlates directly with the schema of Product
+    */
+   const updates = {
+     driveName: req.body.driveName,
+     originAddress: req.body.originAddress,
+     destinationAddress: req.body.destinationAddress,
+     distance: req.body.distance,
+     amountTaken: req.body.amountTaken,
+   };
+
+   Drive.findByIdAndUpdate(driveId, updates, (err, drive) => {
+      if (err){ return next(err); }
+      return res.redirect(`/drives/${drive._id}`);
+    });
+  });
+
+  driveRoutes.post('/:id/delete', authorizeDrive, (req, res, next) => {
+    const driveId = req.params.id;
+
+    Drive.findByIdAndRemove(driveId, (err, drive) => {
+      if (err){ return next(err); }
+      return res.redirect('/drives');
+    });
+  });
 
 
 

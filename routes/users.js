@@ -4,51 +4,34 @@ const passport = require("passport");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const User = require('../models/user');
 const Car = require('../models/car');
-// const Drive = require('../models/drive');
+const Drive = require('../models/drive');
 const userRoutes  = express.Router();
 
 /* GET users listing. */
 
 
-// userRoutes.get('/profile', ensureLoggedIn('/login'), (req, res, next) =>{
-//   Car.find(
-//     {owner: req.user._id},
-//     {carName: 1},
-//     (err, car) => {
-//       if (err) {
-//         next(err);
-//         return;
-//       }
-//       res.render('user/profile', {car: car});
-//     }
-//   )
-// })
+// userRoutes.get('/profile', ensureLoggedIn('/login'), (req, res, next) => {
+// Car.find({_creator: req.user._id}, (err, car) => {
+//     if (err) { return next(err) }
+//     res.render('user/profile', {car: car});
+//   });
+// });
+
+
 
 userRoutes.get('/profile', ensureLoggedIn('/login'), (req, res, next) => {
 Car.find({_creator: req.user._id}, (err, car) => {
     if (err) { return next(err) }
-    res.render('user/profile', {car: car});
+Drive.find({_creator: req.user._id}, (err, drive) => {
+  if (err) {return next(err)}
+  const data = {
+    car: car,
+    drive: drive
+  }
+ res.render('user/profile', data);
+    });
   });
 });
-
-// userRoutes.get(‘/profile’, ensureLoggedIn(‘/login’), (req, res, next) => {
-//
-//    Character.find(
-//      {owner: req.user._id},
-//      {carName: 1},
-//      (err, carlist) => {
-//        if (err) {
-//          next(err);
-//          return;
-//        }
-//
-//        res.render(‘users/profile, {car: carlist});
-//      }
-//    );
-//  }
-// );
-
-
 
 
 module.exports = userRoutes;

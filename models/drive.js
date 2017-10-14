@@ -16,7 +16,9 @@ const DriveSchema = new Schema({
 
 });
 
-
+DriveSchema.methods.belongsTo = function(user){
+  return this._creator.equals(user._id);
+}
 
 
 
