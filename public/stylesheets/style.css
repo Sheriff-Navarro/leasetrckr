@@ -1,12 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
 }
 
+.brandLogo{
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  color: blue;
+}
 /* public/stylesheets/styles.css */
 .main-container {
   padding-top: 25px;

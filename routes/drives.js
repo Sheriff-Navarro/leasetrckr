@@ -20,8 +20,12 @@ Drive.find({}, (err, drive) => {
 });
 
 driveRoutes.get('/new', ensureLoggedIn('/login'),(req, res)=> {
-  res.render('./drives/new');
+  Car.find({_creator: req.user._id}, (err, car) => {
+      if (err) { return next(err) }
+  res.render('./drives/new', {car: car});
+  });
 });
+
 
 driveRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
   const newDrive = new Drive({
@@ -31,7 +35,7 @@ driveRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
     destinationAddress: req.body.destinationAddress,
     distance: req.body.distance,
     amountTaken: req.body.amountTaken,
-
+    carId: req.body.carId
     // We're assuming a user is logged in here
     // If they aren't, this will throw an error
   });
@@ -77,6 +81,8 @@ driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, nex
      destinationAddress: req.body.destinationAddress,
      distance: req.body.distance,
      amountTaken: req.body.amountTaken,
+     carId: req.body.carId
+
    };
 
    Drive.findByIdAndUpdate(driveId, updates, (err, drive) => {

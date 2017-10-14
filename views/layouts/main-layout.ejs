@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script
   src="http://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -25,24 +26,22 @@
 
         <div class="collapse navbar-collapse" id="home-nav">
           <ul class="nav navbar-nav">
-            <li><a href="#">Start a Project</a></li>
+            <li class="brandLogo"><a href="/">LeaseTrckr</a></li>
             <li class="nav-logo">
-              <a href="#" class="nav-logo-link">
+              <a href="/" class="nav-logo-link">
                 <!-- <img class="nav-logo-image" src="https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_8c904a3bee158b96cdaf0cad6900b4b2.png" alt="Kickstarter Logo"> -->
               </a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-search"></span>
-              </a>
+              <form action="/logout" method="POST">
+                 <button class="btn btn-link btn-logout" type="submit">Logout</a>
+               </form> 
             </li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
-            <form action="/logout" method="POST">
-               <button class="btn btn-link btn-logout" type="submit">Logout</a>
-             </form>          </ul>
+                     </ul>
         </div>
       </div>
     </nav>

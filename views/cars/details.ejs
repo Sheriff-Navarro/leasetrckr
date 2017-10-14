@@ -2,15 +2,25 @@
 
 <h1><%= car.carName %></h1>
 
-<h2><%= car.totAllotMiles %></h2>
+<p> Total Lease Mileage <%= car.totAllotMiles %></p>
 
-<h3><%= car.currentOdom %></h3>
+<p> Current Odometer reading <%= car.currentOdom %></p>
 
-<h4> <%= car.currentOdom %></h4>
+<p> Lease Duration (months) <%= car.leaseDurationMonths %></p>
 
-<h4> <%= car.leaseDurationMonths %></h4>
+<p> Lease Expiration Date <%= car.leaseExpires %></p>
 
-<h4> <%= car.leaseExpires %></h4>
+<p> Miles Allowed Yearly <%= car.yearlyAllowedMileage%></p>
+
+<p> Miles Allowed Monthly <%= car.monthlyAllowedMileage%></p>
+
+<p> Miles Allowed Daily <%= car.dailyMileageAllowed%></p>
+
+<p> Total Lease Days <%= car.totalLeaseDays%></p>
+
+
+<p> Lease Years <%= car.leaseYears%></p>
+
 
 <a class="btn btn-info" href="/cars/<%= car._id %>/edit" role="button">Edit the Car</a>
 <br>

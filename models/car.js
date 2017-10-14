@@ -27,10 +27,29 @@ const CarSchema = new Schema({
 // CarSchema.virtual('inputFormattedDate').get(function(){
 //   return moment(this.deadline).format('YYYY-MM-DD');
 // });
+CarSchema.virtual('yearlyAllowedMileage').get(function(){
+  return this.totAllotMiles / this.leaseYears;
+});
+
+CarSchema.virtual('monthlyAllowedMileage').get(function(){
+  return this.totAllotMiles / this.leaseDurationMonths;
+});
+
+CarSchema.virtual('leaseYears').get(function(){
+  return this.leaseDurationMonths / 12;
+});
+
+CarSchema.virtual('dailyMileageAllowed').get(function(){
+  return this.totAllotMiles/(365*this.leaseYears);
+})
+
+CarSchema.virtual('totalLeaseDays').get(function(){
+  return this.leaseYears * 365;
+})
 
 CarSchema.methods.belongsTo = function(user){
   return this._creator.equals(user._id);
-}
+};
 
 
 const Car = mongoose.model('Car', CarSchema);

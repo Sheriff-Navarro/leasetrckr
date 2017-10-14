@@ -57,6 +57,13 @@
 
 </div>
 
+<div class="form-group row">
+  <select name="carId" class="selectpicker">
+    <% car.forEach((car) => { %>
+        <option value="<%=car._id%>"><%= car.carName %></option>
+    <%  }) %>
+</select>
+</div>
 
 
   <button class="btn btn-success"type="submit">Save Drive</button>

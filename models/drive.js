@@ -13,7 +13,8 @@ const DriveSchema = new Schema({
   distance : { type: Number, required: true },
   //Date the lease expires
   amountTaken  : { type: Number, required: true},
-
+  //associated car
+  carId : {type: Schema.Types.ObjectId, ref: 'Car', required: true}
 });
 
 DriveSchema.methods.belongsTo = function(user){
