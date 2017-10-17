@@ -10,7 +10,13 @@
 
 <h4> <%= drive.amountTaken %></h4>
 
+<p> Weekly Distance = <%= drive.weeklyDistance%></p>
 
+<p> Daily Average = <%=drive.dailyAverage%> </p>
+
+<p> Estimated Monthly Distance (calculations based off 31 days) =  <%= drive.estimatedMonthlyDistance%></p>
+
+<p> Estimated Yearly Distance  =  <%= drive.estimatedYearlyDistance%></p>
 <a class="btn btn-info" href="/drives/<%= drive._id %>/edit" role="button">Edit the Car</a>
 <br>
 <br>

@@ -6,7 +6,6 @@ const User = require('../models/user');
 const Drive = require('../models/drive');
 const authorizeCar = require('../middleware/car-authorization.js')
 const carRoutes  = express.Router();
-
 carRoutes.get('/', (req, res, next) => {
 
 Car.find({}, (err, car) => {
@@ -50,6 +49,7 @@ carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) =
    const carId = req.params.id;
 
   Car.findById(carId, (err, car) => {
+      console.log("Gus test = ",car.leaseExpires);
      if (err) { return next(err); }
      res.render('cars/details', {car: car});
    });

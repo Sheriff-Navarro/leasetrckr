@@ -1,7 +1,7 @@
 // models/user.js
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
-// const Car = require('./car');
+const Car = require('./car');
 
 
 

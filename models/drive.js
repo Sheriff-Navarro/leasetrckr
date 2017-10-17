@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
-
+const Car = require('./car');
 const DriveSchema = new Schema({
   _creator      : { type: Schema.Types.ObjectId, ref: 'User', required: true },
   //keeping it simple with just name instead of models
@@ -20,6 +20,29 @@ const DriveSchema = new Schema({
 DriveSchema.methods.belongsTo = function(user){
   return this._creator.equals(user._id);
 }
+
+DriveSchema.virtual('carUsed').get(function(car) {
+  return this.carId.equals(car._id);
+  console.log(carUsed);
+})
+
+
+
+DriveSchema.virtual('dailyAverage').get(function(){
+  return Math.ceil(this.distance * this.amountTaken / 7);
+})
+
+DriveSchema.virtual('weeklyDistance').get(function(){
+  return this.distance * this.amountTaken;
+})
+
+DriveSchema.virtual('estimatedMonthlyDistance').get(function(){
+  return Math.ceil(this.dailyAverage * 30);
+})
+
+DriveSchema.virtual('estimatedYearlyDistance').get(function(){
+  return this.estimatedMonthlyDistance * 12;
+})
 
 
 
