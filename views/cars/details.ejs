@@ -1,19 +1,29 @@
 <div class = "detailsContainer">
   <div class="row">
     <div class="col-xs-12" id="fuck">
+      <div class="row">
       <div class="col-xs-12">
         <h1><%=car.carName%></h1>
       </div>
       <div class="col-xs-4" id="spec">
-        <p> Lease Days Remaining <%= car.leaseDaysLeft%></p>
+        <div>Lease Days Remaining</div>
+        <div id="specDet"><%= car.leaseDaysLeft%></div>
       </div>
       <div class="col-xs-4" id="spec">
         <div>Current Allotted Mileage</div>
-        <div><%= car.allotMileageTillNow%></div>
+        <div id="specDet"><%= car.allotMileageTillNow%></div>
       </div>
       <div class="col-xs-4" id="spec">
         <div>Current Odometer Reading</div>
-        <div><%= car.currentOdom %></div>
+        <div id="specDet"><%= car.currentOdom %></div>
+      </div>
+    </div>
+    <div id="pacingContainer">
+      <div class="row">
+        <div class="col-xs-12" id="pacingBlock">
+
+        </div>
+
       </div>
     </div>
   </div>
