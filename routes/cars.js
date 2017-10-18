@@ -39,7 +39,7 @@ carRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
 if (err) {
   res.render('cars/new', { car: newCar});
 } else {
-  res.redirect(`/cars`);
+  res.redirect(`/profile`);
 }
 });
 });

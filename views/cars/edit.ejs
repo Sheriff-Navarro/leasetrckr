@@ -86,4 +86,10 @@
     <div class="error-message"><%= errorMessage %></div>
   <% } %> -->
 
+  <br>
+  <br>
+  <br>
+  <form  action="/cars/<%= car._id %>/delete" method="post">
+    <button type="submit" name="delete" class="btn btn-danger">Delete <%= car.carName %></button>
+  </form>
 </body>

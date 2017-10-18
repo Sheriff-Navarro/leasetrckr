@@ -44,7 +44,7 @@ driveRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
 if (err) {
   res.render('drives/new', { drive: newDrive});
 } else {
-  res.redirect(`/drives`);
+  res.redirect(`/profile`);
 }
 });
 });
@@ -63,7 +63,14 @@ driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, nex
  // console.log("`````````",carId);
    Drive.findById(driveId, (err, drive) => {
      if (err) {return next(err); }
-     res.render('drives/edit', {drive: drive});
+     Car.find({_creator: req.user._id}, (err,car)=> {
+        if (err) {return next(err); }
+        const data = {
+          car: car,
+          drive: drive
+        }
+     res.render('drives/edit', data);
+    });
    });
  });
 
@@ -81,7 +88,7 @@ driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, nex
      destinationAddress: req.body.destinationAddress,
      distance: req.body.distance,
      amountTaken: req.body.amountTaken,
-     carId: req.body.carId
+     carId: req.body.carId,
 
    };
 

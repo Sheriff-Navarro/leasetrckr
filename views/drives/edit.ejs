@@ -58,6 +58,7 @@
 </div>
 
 <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="amountTaken"> Which car do you take this route with?  </label>
   <select name="carId" class="selectpicker">
     <% car.forEach((car) => { %>
         <option value="<%=car._id%>"><%= car.carName %></option>

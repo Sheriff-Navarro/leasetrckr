@@ -1,0 +1,143 @@
+<div class = "detailsContainer">
+  <div class="row">
+    <div class="col-xs-12" id="fuck">
+      <div class="row">
+      <div class="col-xs-12">
+        <h1><%=car.carName%></h1>
+      </div>
+      <div class="col-xs-4" id="spec">
+        <div>Lease Days Remaining</div>
+        <div id="specDet"><%= car.leaseDaysLeft%></div>
+      </div>
+      <div class="col-xs-4" id="spec">
+        <div>Current Allotted Mileage</div>
+        <div id="specDet"><%= car.allotMileageTillNow%></div>
+      </div>
+      <div class="col-xs-4" id="spec">
+        <div>Current Odometer Reading</div>
+        <div id="specDet"><%= car.currentOdom %></div>
+      </div>
+    </div>
+    <div id="pacingContainer">
+      <div class="row">
+        <div class="col-xs-12" id="pacingBlock">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+const stepXAxis = 6
+var ctx = document.getElementById("myChart");
+var graphStep = `<%=car.leaseDurationMonths%>`/stepXAxis;
+var graphSteps = [1,2,3,4,5,6].map(function(current_number){return (current_number*graphStep) + ' months'})
+var optimal = [1,2,3,4,5,6].map(function(current_num){return(current_num*`<%=car.totAllotMiles%>`/stepXAxis)});
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: graphSteps,
+        datasets: [{
+            label: 'Miles',
+            data: optimal,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }, {
+            label: 'Miles',
+            data: [`<%=car.daysPassed%>` - 100, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+
+                'rgba(54, 162, 235, 1)',
+
+            ],
+            borderWidth: 1
+        }, {
+            label: 'Miles',
+            data: [4000, 8000, 12000],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script> -->
+
+
+
+<p> Total Lease Mileage <%= car.totAllotMiles %></p>
+
+<p> Current Odometer reading <%= car.currentOdom %></p>
+
+<p> Lease Duration (months) <%= car.leaseDurationMonths %></p>
+
+<p> Lease Expiration Date <%= car.leaseExpires %></p>
+
+<p> Lease Years <%= car.leaseYears%></p>
+
+<p> Miles Allowed Yearly <%= car.yearlyAllowedMileage%></p>
+
+<p> Miles Allowed Monthly <%= car.monthlyAllowedMileage%></p>
+
+<p> Miles Allowed Daily <%= car.dailyMileageAllowed%></p>
+
+<p> Total Lease Days <%= car.totalLeaseDays%></p>
+
+<p> Lease Days Remaining <%= car.leaseDaysLeft%></p>
+
+<p> Lease Days Passed <%= car.daysPassed%></p>
+
+<p> Allotted Mileage Up Till Now <%= car.allotMileageTillNow%> </p>
+
+<p> Whats My Pace ? <%=car.pace%></p>
+
+<p><%=car.howAmIDoing%></p>
+
+<a class="btn btn-info" href="/cars/<%= car._id %>/edit" role="button">Edit the Car</a>
+<br>
+<br>
+<form  action="/cars/<%= car._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= car.carName %></button>
+</form>
