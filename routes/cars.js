@@ -47,13 +47,18 @@ if (err) {
 
 carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
    const carId = req.params.id;
-
   Car.findById(carId, (err, car) => {
-      console.log("Gus test = ",car.leaseExpires);
      if (err) { return next(err); }
-     res.render('cars/details', {car: car});
+     Drive.find({carId: carId}, (err, drive) => {
+       if (err) { return next(err); }
+       const data = {
+         car: car,
+         drive: drive
+       }
+     res.render('cars/details', data);
    });
- });
+  });
+});
 
 carRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
   const carId = req.params.id;

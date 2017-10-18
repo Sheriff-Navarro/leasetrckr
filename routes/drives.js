@@ -49,14 +49,31 @@ if (err) {
 });
 });
 
-driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
-   const driveId = req.params.id;
+// driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
+//    const driveId = req.params.id;
+//
+//   Drive.findById(driveId, (err, drive) => {
+//      if (err) { return next(err); }
+//      res.render('drives/details', {drive: drive});
+//    });
+//  });
 
-  Drive.findById(driveId, (err, drive) => {
-     if (err) { return next(err); }
-     res.render('drives/details', {drive: drive});
-   });
- });
+
+ driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
+    const driveId = req.params.id;
+
+    Drive.findById(driveId, (err, drive) => {
+      if (err) {return next(err); }
+      Car.find({_creator: req.user._id}, (err,car)=> {
+         if (err) {return next(err); }
+         const data = {
+           car: car,
+           drive: drive
+         }
+      res.render('drives/details', {drive: drive});
+      });
+    });
+  });
 
  driveRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
    const driveId = req.params.id;

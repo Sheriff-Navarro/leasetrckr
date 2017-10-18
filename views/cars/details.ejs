@@ -29,12 +29,37 @@
     <div id="pacingContainer">
       <div class="row">
         <div class="col-xs-12" id="pacingBlock">
-
         </div>
       </div>
     </div>
+    <div class="container" >
+      <div class="row">
+        <div class="col-xs-12" >
+          <div class="col-xs-9 yayOrNay" id="yayOrNay">
+          </div>
+
+          <div class="col-xs-3">
+            <div class="form-group row">
+
+              <label class="col-sm-12 col-form-label" for="currentOdom">Update Your Odometer </label>
+              <form  action="/cars/<%= car._id %>" method="POST">
+              <div class="col-sm-12">
+              <input type="number" name="currentOdom" id="currentOdom"value="<%=car.currentOdom%>">
+              <button id="updateOdom"class="btn btn-primary"type="submit">Save Odometer</button>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </div>
+
 <div class="containterGraph">
   <div class="row">
     <div class="xs-sm-12">

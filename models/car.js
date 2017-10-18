@@ -102,8 +102,18 @@ CarSchema.virtual('howAmIDoing').get(function(){
 })
 
 CarSchema.virtual('step').get(function(){
-  return this.leaseDurationMonths / 6; 
+  return this.leaseDurationMonths / 6;
 })
+
+CarSchema.virtual('findCarsRoutes').get(function(){
+
+})
+
+
+
+
+
+
 
 
 
