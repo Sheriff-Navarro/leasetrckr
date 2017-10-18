@@ -60,6 +60,18 @@ carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) =
   });
 });
 
+carRoutes.post('/:id', ensureLoggedIn('/login'), authorizeCar,(req, res, next) => {
+  console.log("whatever inside patch");
+  const carId = req.params.id;
+  const updates = {
+    currentOdom: req.body.currentOdom,
+  }
+  Car.findByIdAndUpdate(carId, updates, (err, car) => {
+     if (err){ return next(err); }
+     return res.redirect(`/cars/${car._id}`);
+   })
+});
+
 carRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
   const carId = req.params.id;
 // console.log("`````````",carId);
@@ -69,7 +81,7 @@ carRoutes.get('/:id/edit', ensureLoggedIn('/login'), authorizeCar, (req, res, ne
   })
 })
 
-carRoutes.post('/:id', ensureLoggedIn('/login'), authorizeCar,(req, res, next) => {
+carRoutes.post('/:id/edit', ensureLoggedIn('/login'), authorizeCar,(req, res, next) => {
 
   const carId = req.params.id;
   console.log("`````````",carId);
@@ -102,5 +114,7 @@ carRoutes.post('/:id', ensureLoggedIn('/login'), authorizeCar,(req, res, next) =
      return res.redirect('/cars');
    });
  });
+
+
 
 module.exports = carRoutes;

@@ -1,12 +1,34 @@
+
+
 $(document).ready(function(){
 
 
 function pacingFunction(){
-if(this.pace >=0){
-  $(".yayOrNay").css("background-color", "red");
-    } else{};
-}
+  const hiddenPaceDiv = $("#hiddenPaceDiv").val()
+  console.log(hiddenPaceDiv);
+if($("#hiddenPaceDiv").val() >= 0 ){
+  console.log('should be positive');
+  $("#yayOrNay").css("background-color", "green");
+} else if ($("#hiddenPaceDiv").val() < 0){
+      console.log('should be negative');
+      $("#yayOrNay").css("background-color", "red");
+    };
+};
 
-pacingFunction();
+
+
+
+
+
+
+
+
+
+// setTimeout(function(){
+  pacingFunction();
+// }, 1000)
+
+
+
 
 })
