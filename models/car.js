@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const moment = require('moment');
+const Drive = require('./drive');
 const CarSchema = new Schema({
   _creator      : { type: Schema.Types.ObjectId, ref: 'User', required: true },
   //keeping it simple with just name instead of models
@@ -105,9 +106,19 @@ CarSchema.virtual('step').get(function(){
   return this.leaseDurationMonths / 6;
 })
 
-CarSchema.virtual('findCarsRoutes').get(function(){
-
-})
+// CarSchema.virtual('forecastedRoutes').get(function(){
+//   var foreCastedTotal = 0;
+//
+//   Drive.find({carId: this._id}, (err, drive)=>{
+//     if (err) {return next(err);}
+//     drive.forEach(function(drives) {
+//       foreCastedTotal += drives.distance * drives.amountTaken;
+//       console.log("TOTAL  1", foreCastedTotal);
+//     });
+//     console.log("TOTAL  2", foreCastedTotal);
+//     return foreCastedTotal;
+//   });
+// });
 
 
 

@@ -1,5 +1,3 @@
-
-
 $(document).ready(function(){
 
 
@@ -8,25 +6,20 @@ function pacingFunction(){
   console.log(hiddenPaceDiv);
 if($("#hiddenPaceDiv").val() >= 0 ){
   console.log('should be positive');
-  $("#yayOrNay").css("background-color", "green");
+  $("#yayOrNay").css("border-color", "green");
+  $("#yayOrNay").css("border-color", "green");
+
 } else if ($("#hiddenPaceDiv").val() < 0){
       console.log('should be negative');
       $("#yayOrNay").css("background-color", "red");
     };
 };
+pacingFunction();
 
 
 
 
 
-
-
-
-
-
-// setTimeout(function(){
-  pacingFunction();
-// }, 1000)
 
 
 

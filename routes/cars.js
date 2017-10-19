@@ -47,13 +47,19 @@ if (err) {
 
 carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
    const carId = req.params.id;
+   let foreCastedTotal = 0;
   Car.findById(carId, (err, car) => {
      if (err) { return next(err); }
      Drive.find({carId: carId}, (err, drive) => {
        if (err) { return next(err); }
+       drive.forEach(function(drives) {
+         foreCastedTotal += drives.distance * drives.amountTaken;
+         console.log("TOTAL  1", foreCastedTotal);
+       });
        const data = {
          car: car,
-         drive: drive
+         drive: drive,
+         foreCastedTotal: foreCastedTotal
        }
      res.render('cars/details', data);
    });
