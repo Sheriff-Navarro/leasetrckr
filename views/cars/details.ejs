@@ -71,25 +71,20 @@
       var myChart = new Chart(ctx, {
           type: 'horizontalBar',
           data: {
-              labels: ["Allotted Miles", "Current Odometer Reading"],
+              labels: ["Allotted Miles", "Forecasted Miles from Routes", "Current Odometer Reading"],
               datasets: [{
                   label: '# of Miles',
-                  data: [`<%=car.allotMileageTillNow%>`,`<%=car.currentOdom%>`],
+                  data: [`<%=car.allotMileageTillNow%>`, `<%=(foreCastedTotal*car.weeksPassed)%>`,`<%=car.currentOdom%>`],
                   backgroundColor: [
-                      'rgba(151, 229, 185, 0.5)',
-                      'rgba(151, 215, 229, 0.5)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
-                  ],
+                      'rgba(79, 163, 114, 0.5)',
+                      'rgba(175, 87, 173, 0.5)',
+                      'rgba(183, 132, 100, 0.5)',
+                              ],
                   borderColor: [
-                      'rgba(151,229,185,1)',
-                      'rgba(151, 215, 229, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
+                      'rgba(79, 163, 114, 1)',
+                      'rgba(175, 87, 173, 1)',
+                      'rgba(183, 132, 100, 1)',
+
                   ],
                   borderWidth: 1
               }]
@@ -108,7 +103,5 @@
     </div>
   </div>
 </div>
-
-<div><%=foreCastedTotal%></div>
 
 <input id="hiddenPaceDiv" hidden="true" value="<%=car.pace%>"></input>

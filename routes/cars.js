@@ -48,6 +48,7 @@ if (err) {
 carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) => {
    const carId = req.params.id;
    let foreCastedTotal = 0;
+   let yearlyForeCastedTotal = foreCastedTotal * 52;
   Car.findById(carId, (err, car) => {
      if (err) { return next(err); }
      Drive.find({carId: carId}, (err, drive) => {
@@ -59,7 +60,8 @@ carRoutes.get('/:id', ensureLoggedIn('/login'), authorizeCar, (req, res, next) =
        const data = {
          car: car,
          drive: drive,
-         foreCastedTotal: foreCastedTotal
+         foreCastedTotal: foreCastedTotal,
+         yearlyForeCastedTotal: yearlyForeCastedTotal
        }
      res.render('cars/details', data);
    });
@@ -117,7 +119,7 @@ carRoutes.post('/:id/edit', ensureLoggedIn('/login'), authorizeCar,(req, res, ne
 
    Car.findByIdAndRemove(carId, (err, car) => {
      if (err){ return next(err); }
-     return res.redirect('/cars');
+     return res.redirect('/profile');
    });
  });
 

@@ -71,6 +71,10 @@ CarSchema.virtual('daysPassed').get(function(){
   return this.totalLeaseDays - this.leaseDaysLeft;
 })
 
+CarSchema.virtual('weeksPassed').get(function(){
+  return Math.floor(this.daysPassed/7);
+})
+
 CarSchema.virtual('allotMileageTillNow').get(function(){
   return this.daysPassed * this.dailyMileageAllowed;
 })
@@ -106,19 +110,18 @@ CarSchema.virtual('step').get(function(){
   return this.leaseDurationMonths / 6;
 })
 
-// CarSchema.virtual('forecastedRoutes').get(function(){
-//   var foreCastedTotal = 0;
-//
-//   Drive.find({carId: this._id}, (err, drive)=>{
-//     if (err) {return next(err);}
-//     drive.forEach(function(drives) {
-//       foreCastedTotal += drives.distance * drives.amountTaken;
-//       console.log("TOTAL  1", foreCastedTotal);
-//     });
-//     console.log("TOTAL  2", foreCastedTotal);
-//     return foreCastedTotal;
-//   });
-// });
+CarSchema.virtual('forecastedRoutes').get(function(){
+  var foreCastedTotal = 0;
+  Drive.find({carId: this._id}, (err, drive)=>{
+    if (err) {return next(err);}
+    drive.forEach(function(drives) {
+      foreCastedTotal += drives.distance * drives.amountTaken;
+      console.log("TOTAL  1", foreCastedTotal);
+    });
+    console.log("TOTAL  2", foreCastedTotal);
+    return foreCastedTotal;
+  });
+});
 
 
 

@@ -120,7 +120,7 @@ if (err) {
 
     Drive.findByIdAndRemove(driveId, (err, drive) => {
       if (err){ return next(err); }
-      return res.redirect('/drives');
+      return res.redirect('/profile');
     });
   });
 
