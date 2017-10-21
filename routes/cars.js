@@ -23,6 +23,18 @@ carRoutes.get('/new', ensureLoggedIn('/login'),(req, res)=> {
 });
 
 carRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
+
+  // if (req.body.imageUrl.length == 0 ) {
+  //   req.body.imageUrl = "/images/default-display-car.png";
+  // };
+  req.body.imageUrl = (req.body.imageUrl.length == 0)
+  ?
+  "/images/default-display-car.png"
+  :
+  req.body.imageUrl;
+
+  console.log('req.body.imageUrl.length', req.body.imageUrl.length);
+
   const newCar = new Car({
     _creator   : req.user._id,
     carName: req.body.carName,
@@ -34,6 +46,7 @@ carRoutes.post('/', ensureLoggedIn('/login'), (req, res, next) => {
     // We're assuming a user is logged in here
     // If they aren't, this will throw an error
   });
+
 
   newCar.save( (err) => {
 if (err) {

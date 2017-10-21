@@ -1,7 +1,7 @@
 <a class="btn btn-primary" href="/cars/new">Create a Car</a> <a class="btn btn-primary" href="/drives/new">Create a Drive</a>
   <div class="container">
     <div class="row">
-      <% car.forEach((car) => { %>
+      <!-- <% car.forEach((car) => { %>
 
         <div class="col-xs-5"id="profileCar">
 
@@ -13,6 +13,39 @@
           <a class="btn btn-info" href="/cars/<%= car._id %>" role="button">View Car</a>
           <br>
         </div>
+        <%  }) %> -->
+        <% car.forEach((car) => { %>
+          <div class="col-xs-5" id="profileCar">
+            <div class="row">
+              <div class="col-xs-10">
+              </div>
+              <a role="button" class="col-xs-2" href="/cars/<%= car._id %>">
+                View
+              </a>
+            </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <img src="<%=car.imageUrl%>" alt="..." class="img-thumbnail">
+            </div>
+            <div class="col-xs-9">
+                <h2><%=car.carName%></h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <p id="driveStatHeading1">Remaining Lease</p>
+              <p id="driveStatNum1"><b id="driveStatNum"><%=car.leaseDaysLeft%></b> days</p>
+            </div>
+            <div class="col-xs-4">
+              <p id="driveStatHeading1">Current Odometer</p>
+              <p id="driveStatNum1"><b id="driveStatNum"><%=car.currentOdom%></b> miles</p>
+            </div>
+            <div class="col-xs-4">
+              <p id="driveStatHeading1">Pace</p>
+              <p id="driveStatNum1"><b id="driveStatNum"><%=car.pace%></b> miles</p>
+            </div>
+          </div>
+          </div>
         <%  }) %>
 
         <% drive.forEach((drive) => { %>

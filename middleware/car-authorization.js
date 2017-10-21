@@ -1,6 +1,7 @@
 const Car = require('../models/car.js');
 
 function authorizeCar(req, res, next){
+  console.log("req.user=",req.user);
     Car.findById(req.params.id, (err, car) => {
 //if there's an error, forward it
       if(err) { return next(err) }

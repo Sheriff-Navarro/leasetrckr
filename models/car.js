@@ -15,7 +15,7 @@ const CarSchema = new Schema({
   //Date the lease expires
   leaseExpires  : { type: Date, required: true},
   //User wants to show their car
-  imageUrl      : { type: String, required: false},
+  imageUrl      : { type: String, required: false, default: "/images/default-display-car.png"},
 
 });
 

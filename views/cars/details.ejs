@@ -42,22 +42,13 @@
     <div class="container" >
       <div class="row">
         <div class="col-xs-3">
-          <!-- <div class="form-group row">
-
-            <label class="col-sm-12 col-form-label" for="currentOdom">Update Your Odometer </label>
-            <form  action="/cars/<%= car._id %>" method="POST">
-            <div class="col-sm-12">
-            <input type="number" name="currentOdom" id="currentOdom"value="<%=car.currentOdom%>">
-            <button id="updateOdom"class="btn btn-primary"type="submit">Save Odometer</button>
-
-            </div> -->
 
             <form action="/cars/<%= car._id %>" method="POST">
               <div class="form-row align-items-center" action="/cars/<%= car._id %>" method="POST">
-                <div class="col-auto">
+                <div class="col-auto offset">
                 <label class="sr-only" for="inlineFormInput">Update Your Odometer</label>
                 <input type="number" name="currentOdom"class="form-control mb-2 mb-sm-0" id="currentOdom" value="<%=car.currentOdom%>">
-                <!-- <div class="col-auto"> -->
+                <!-- <div class="col-auto"> --><br>
                 <span><button id="updateOdom"type="submit" class="btn btn-primary">Update Odomoeter</button></span>
                 <!-- </div> -->
                 </div>
