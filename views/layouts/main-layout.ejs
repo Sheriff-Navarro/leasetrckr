@@ -35,14 +35,28 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <ul class="nav nav-tabs">
+
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      Profile <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="/login">Login</a></li>
+      <li><a href="/signup">Signup</a></li>
+    </ul>
+  </li>
+
+</ul>
             <li>
-              <form action="/logout" method="POST">
+              <!-- <form action="/logout" method="POST">
                  <button class="btn btn-link btn-logout" type="submit">Logout</a>
-               </form>
+               </form> -->
             </li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
-                     </ul>
+            </ul>
+
+            <!-- <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li> -->
         </div>
       </div>
     </nav>

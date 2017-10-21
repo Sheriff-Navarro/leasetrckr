@@ -1,19 +1,20 @@
-
-
 <a class="btn btn-primary" href="/cars/new">Create a Car</a> <a class="btn btn-primary" href="/drives/new">Create a Drive</a>
   <div class="container">
     <div class="row">
-        <div class="col-xs-9"id="profileCar">
-          <% car.forEach((car) => { %>
+      <% car.forEach((car) => { %>
+
+        <div class="col-xs-5"id="profileCar">
 
           <h2><%=car.carName%></h2>
+
           <p>Allotted Miles</p> <p><%=car.allotMileageTillNow%></p>
           <p>Odometer Reading</p> <p><%=car.currentOdom%></p>
           <br>
           <a class="btn btn-info" href="/cars/<%= car._id %>" role="button">View Car</a>
           <br>
-            <%  }) %>
         </div>
+        <%  }) %>
+
         <% drive.forEach((drive) => { %>
         <div class="col-xs-3" id ="drives">
           <div class="col-xs-12"  >
@@ -27,7 +28,7 @@
 
             <div class="col-xs-6" id="driveStat">
 
-              <p id="driveStatHeading">Amount Taken</p>
+              <p id="driveStatHeading">Weekly Trips</p>
               <p><b id="driveStatNum"><%=drive.amountTaken%></b> </p>
             </div>
             <div class="row">
