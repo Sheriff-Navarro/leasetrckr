@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Abel', sans-serif;
   background-color: #becad3;
 }
 
@@ -26,12 +27,27 @@ a {
   font-size: 20px;
 }
 
+.material-icons{
+  font-size: 80px;
+  color: #e28f73;
+
+}
+
 #indexH2{
   font-size: 40px;
 }
 
-.material-icons {
-  font-size: 85px;
+#mI {
+  font-size: 40px;
+  color: #e28f73;
+  text-align: center;
+}
+
+#mI2 {
+
+  text-align: center;
+}
+.driveIcon {
   color: #e28f73;
 }
 
@@ -224,7 +240,15 @@ text-align: center;
   border-width: thin;*/
   box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
   margin-bottom: 0;
-
+}
+#fuck1{
+  margin-top: 15px;
+  padding: 10px;
+  background-color: white;
+  /*border-style: solid;
+  border-width: thin;*/
+  box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
+  margin-bottom: 0;
 }
 
 #yayOrNay, .yayOrNay{
@@ -241,7 +265,7 @@ text-align: center;
 }
 
 #spec{
-  margin-top: 40px;
+  margin-top: 10px;
   margin-bottom: 40px;
   text-align: center;
   font-size: 20px;
@@ -310,6 +334,22 @@ text-align: center;
 font-size: 12px;
 color: #9fa89e;
 }
+#driveStatHeading2{
+margin-top: 15px;
+margin-bottom: 15px;
+text-align: center;
+font-size: 20px;
+color: #9fa89e;
+}
+
+#driveSH2{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: #9fa89e;
+
+}
 
 #driveStatNum{
 text-align: center;
@@ -323,6 +363,11 @@ font-size: 20px;
 margin-bottom: 15px;
 }
 
+#driveStatNum2{
+text-align: center;
+font-size: 26px;
+margin-bottom: 15px;
+}
 #driveInfo{
   text-align: center;
   font-size: 15px;

@@ -1,27 +1,142 @@
 <body>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8" id="fuck1">
+      <div class="row">
+        <div class="col-xs-1">
+          <a  href="/profile" role="button" class="glyphicon glyphicon-menu-left"></a>
+        </div>
+        <div class="col-xs-10">
+        </div>
+        <div class="col-xs-1">
+          <a  href="/drives/<%= data.drive._id %>/edit" role="button" class="glyphicon glyphicon-edit"> </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h1><%=data.drive.driveName%></h1>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-xs-3" id="mI2">
 
-<h1><%= drive.driveName %></h1>
+        </div>
+        <div class="col-xs-3" id="spec">
+          <i class="material-icons" id="mI">place</i>
+          <div class="">
 
-<h2><%= drive.originAddress %></h2>
+            <%=data.drive.originAddress%>
+          </div>
+        </div>
+        <div class="col-xs-3" id="spec">
+          <i class="material-icons "id="mI">pin_drop</i>
+        <div class="">
+          <%=data.drive.destinationAddress%>
+        </div>
+        </div>
+        <div class="col-xs-3" id="mI2">
+        </div>
+      </div>
+<div class="row">
+  <div class="col-xs-4">
+    <p id="driveStatHeading2"><b>Distance</b></p>
+    <p id="driveStatNum2"><b id="driveStatNum2"><%= data.drive.distance %></b> miles</p>
+  </div>
+  <div class="col-xs-4">
+    <p id="driveStatHeading2"><b>Amount Taken</b></p>
+    <p id="driveStatNum2"><b id="driveStatNum2"><%= data.drive.amountTaken %>
+  </div>
+  <div class="col-xs-4">
+    <p id="driveSH2">Weekly Distance</p>
+    <p id="driveStatNum2"><b id="driveStatNum2"><%= data.drive.weeklyDist %>
+  </div>
+</div>
 
-<h3><%= drive.destinationAddress %></h3>
+<div class="row">
+  <div class="col-xs-4">
+    <p id="driveStatHeading2">Daily Average</p>
+    <p id="driveStatHeading2"></p>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <%=data.drive.dailyAverage%>
+  </div>
+  <div class="col-xs-4">
+    <p id="driveStatHeading2">Monthly Estimate</p>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <%=data.drive.weeklyDist*4%>
+  </div>
+  <div class="col-xs-4">
+    <p id="driveStatHeading2">Yearly Estimate</p>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <%=(data.drive.weeklyDist*4)*12%>
+  </div>
+</div>
 
-<h4> <%= drive.distance %></h4>
 
-<h4> <%= drive.amountTaken %></h4>
+    </div>
+    <div class="col-xs-4">
 
-<p> Weekly Distance = <%= drive.weeklyDistance%></p>
+    </div>
 
-<p> Daily Average = <%=drive.dailyAverage%> </p>
+  </div>
 
-<p> Estimated Monthly Distance (calculations based off 31 days) =  <%= drive.estimatedMonthlyDistance%></p>
+</div>
 
-<p> Estimated Yearly Distance  =  <%= drive.estimatedYearlyDistance%></p>
-<a class="btn btn-info" href="/drives/<%= drive._id %>/edit" role="button">Edit the Car</a>
-<br>
-<br>
-<form  action="/drives/<%= drive._id %>/delete" method="post">
-  <button type="submit" name="delete" class="btn btn-danger">Delete <%= drive.driveName %></button>
+
+
+
+<!-- <h1><%= data.drive.driveName %></h1>
+
+<h2><%= data.drive.originAddress %></h2>
+
+<h3><%= data.drive.destinationAddress %></h3>
+
+<h4> <%= data.drive.distance %></h4>
+
+<h4> <%= data.drive.amountTaken %></h4>
+
+<p> Weekly Distance = <%= data.drive.weeklyDist%></p>
+
+<p> Daily Average = <%=data.drive.dailyAverage%> </p>
+
+<p> Estimated Monthly Distance (calculations based off 31 days) =  <%= data.drive.estimatedMonthlyDistance%></p> -->
+<!-- <p> Estimated Yearly Distance  =  <%= data.drive.estimatedYearlyDistance%></p> -->
+
+<hr>
+<form  action="/drives/<%= data.drive._id %>/delete" method="post">
+  <button type="submit" name="delete" class="btn btn-danger">Delete <%= data.drive.driveName %></button>
 </form>
+<a class="btn btn-info" href="/drives/<%= data.drive._id %>/edit" role="button">Edit the Car</a>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <canvas id="myChart" width="100" height="100"></canvas>
+      <script type="text/javascript">
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ["This Drive", "That Drive"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: ["red","yellow"],
+            borderColor: 'white',
+            data: [<%=data.foreCastedTotal2%>,2],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+      </script>
+
+    </div>
+
+  </div>
+
+</div>
 
 </body>

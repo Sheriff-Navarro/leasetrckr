@@ -46,10 +46,7 @@ DriveSchema.virtual('estimatedYearlyDistance').get(function(){
   return this.estimatedMonthlyDistance * 12;
 })
 
-DriveSchema.virtual('reduceRoutes').get(function(){
-  const routesArray = [];
 
-})
 
 const Drive = mongoose.model('Drive', DriveSchema);
 module.exports = Drive;
