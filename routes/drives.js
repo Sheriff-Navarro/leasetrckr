@@ -50,45 +50,91 @@ if (err) {
 });
 
 driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
-    const driveId = req.params.id;
-    let weeklyDistPerCarDriveName = [];
-    let weeklyDistPerCarMiles = [];
-    let foreCastedTotal2 = 0;
-    Drive.findById(driveId, (err, drive) => {
-      if (err) {return next(err); }
-      Car.find({_id: drive.carId}, (err,car)=> {
-         if (err) {return next(err); }
-         Drive.find({carId: drive.carId}, (err, drive)=>{
-           if (err) {return next(err);}
-           drive.forEach(function(drives){
-             foreCastedTotal2 += drives.distance * drives.amountTaken;
-              weeklyDistPerCarDriveName.push(drives.driveName);
-              console.log(weeklyDistPerCarDriveName);
-              weeklyDistPerCarMiles.push(drives.weeklyDist);
-              console.log(weeklyDistPerCarMiles);
-              console.log(foreCastedTotal2);
-              console.log(foreCastedTotal2-drives.weeklyDist);
-              console.log(drives.weeklyDist);
-           })
-           console.log("outside driveForEach",foreCastedTotal2);
+const driveId = req.params.id;
+Drive.findById(driveId, (err,drive)=>{
+  if (err) {return next(err);}
+  Drive.find({carId: drive.carId}, (err,drives)=>{
+    if(err) {return next(err);}
+    const data = {
+      specificDrive: drive,
+      allDrives: drives
+    }
+    console.log("Data~~~~~", data);
+    res.render('drives/details', {data: data})
+  })
 
-         })
-         console.log("outside Drive.Find",foreCastedTotal2);
+})
 
-         const data = {
-           car: car,
-           drive: drive,
-           weeklyDistPerCarMiles: weeklyDistPerCarMiles,
-           weeklyDistPerCarDriveName: weeklyDistPerCarDriveName,
-           foreCastedTotal2: foreCastedTotal2
-         }
 
-         res.render('drives/details', {data: data});
-      });
-      console.log("outside Render",foreCastedTotal2);
+});
 
-    });
-  });
+
+
+
+
+
+
+//
+// driveRoutes.get('/:id', ensureLoggedIn('/login'), authorizeDrive, (req, res, next) => {
+//     const driveId = req.params.id;
+//     let weeklyDistPerCarDriveName = [];
+//     let weeklyDistPerCarMiles = [];
+//     let foreCastedTotal2 = 0;
+//     Drive.findById(driveId, (err, drive) => {
+//       if (err) {return next(err); }
+//       Car.find({_id: drive.carId}, (err,car)=> {
+//          if (err) {return next(err); }
+//          Drive.find({carId: drive.carId}, (err, drive)=>{
+//            if (err) {return next(err);}
+//            drive.forEach(function(drives){
+//              foreCastedTotal2 += drives.distance * drives.amountTaken;
+//               weeklyDistPerCarDriveName.push(drives.driveName);
+//               console.log(weeklyDistPerCarDriveName);
+//               weeklyDistPerCarMiles.push(drives.weeklyDist);
+//               console.log(weeklyDistPerCarMiles);
+//               console.log(foreCastedTotal2);
+//               console.log(foreCastedTotal2-drives.weeklyDist);
+//               console.log(drives.weeklyDist);
+//            })
+//            console.log("outside driveForEach",foreCastedTotal2);
+//
+//            const data = {
+//              car: car,
+//              drive: drive,
+//              weeklyDistPerCarMiles: weeklyDistPerCarMiles,
+//              weeklyDistPerCarDriveName: weeklyDistPerCarDriveName,
+//              foreCastedTotal2: foreCastedTotal2
+//            }
+//            console.log('DATAAAA~~~~~~~', data);
+//
+//            res.render('drives/details', {data: data});
+//
+//          })
+//          console.log("outside Drive.Find",foreCastedTotal2);
+//
+//
+//
+//
+//         //  const data = {
+//         //    car: car,
+//         //    drive: drive,
+//         //    weeklyDistPerCarMiles: weeklyDistPerCarMiles,
+//         //    weeklyDistPerCarDriveName: weeklyDistPerCarDriveName,
+//         //    foreCastedTotal2: foreCastedTotal2
+//         //  }
+//         //  console.log('DATAAAA~~~~~~~', data);
+//          //
+//         //  res.render('drives/details', {data: data});
+//
+//
+//
+//
+//
+//       });
+//       console.log("outside Render",foreCastedTotal2);
+//
+//     });
+//   });
 
 
 
