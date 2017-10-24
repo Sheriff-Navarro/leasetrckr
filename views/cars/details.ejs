@@ -32,7 +32,7 @@
         <div>Current Odometer Reading</div>
         <form action="/cars/<%= car._id %>" method="POST">
           <input type="number" name="currentOdom"class="form-control mb-2 mb-sm-0 odomUpd" id="currentOdom" value="<%=car.currentOdom%>">
-          <span><button id="updateOdom"type="submit" class="btn btn-primary">Update Odomoeter</button></span>
+          <span><button id="updateOdom"type="submit" class="btn btn-warning">Update Odomoeter</button></span>
         </form>
         <!-- <div id="specDet"><%= car.currentOdom %></div> -->
       </div>

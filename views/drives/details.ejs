@@ -37,6 +37,8 @@
         <div class="col-xs-3" id="mI2">
         </div>
       </div>
+      <hr>
+
 <div class="row">
   <div class="col-xs-4">
     <p id="driveStatHeading2"><b>Distance</b></p>
@@ -48,7 +50,7 @@
   </div>
   <div class="col-xs-4">
     <p id="driveSH2">Weekly Distance</p>
-    <p id="driveStatNum2"><b id="driveStatNum2"><%= data.specificDrive.weeklyDist %>
+    <p id="driveStatNum2"><b id="driveStatNum2"><%= data.specificDrive.weeklyDist %> </b> miles
   </div>
 </div>
 
@@ -56,15 +58,15 @@
   <div class="col-xs-4">
     <p id="driveStatHeading2">Daily Average</p>
     <p id="driveStatHeading2"></p>
-    <p id="driveStatNum22"><b id="driveStatNum2">    <%=data.specificDrive.dailyAverage%>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <%=data.specificDrive.dailyAverage%> miles
   </div>
   <div class="col-xs-4">
     <p id="driveStatHeading2">Monthly Estimate</p>
-    <p id="driveStatNum22"><b id="driveStatNum2">    <%=data.specificDrive.weeklyDist*4%>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <b><%=data.specificDrive.weeklyDist*4%></b> miles
   </div>
   <div class="col-xs-4">
     <p id="driveStatHeading2">Yearly Estimate</p>
-    <p id="driveStatNum22"><b id="driveStatNum2">    <%=(data.specificDrive.weeklyDist*4)*12%>
+    <p id="driveStatNum22"><b id="driveStatNum2">    <b><%=(data.specificDrive.weeklyDist*4)*12%></b> miles
   </div>
 </div>
 
@@ -94,9 +96,21 @@
     data: {
         labels: driveNames,
         datasets: [{
-            label: "My First dataset",
-            backgroundColor: ["red","yellow"],
-            borderColor: 'white',
+            label: "All Drives per Car",
+            backgroundColor: [
+                'rgba(63, 98, 109, .5)',
+                'rgba(224, 33, 129,.5)',
+                'rgba(21, 216, 213, .5)',
+                'rgba(234, 126, 25, .5)',
+                'rgba(114, 219, 28, .5)'
+                        ],
+            borderColor: [
+                'rgba(63, 98, 109, 1)',
+                'rgba(224, 33, 129, 1)',
+                'rgba(21, 216, 213, .1)',
+                'rgba(234, 126, 25, 1)',
+                'rgba(114, 219, 28, 1)'
+            ],
             data: driveDistances,
         }]
     },
@@ -116,58 +130,5 @@
 
 
 
-
-<hr>
-<form  action="/drives/<%= data.specificDrive._id %>/delete" method="post">
-  <button type="submit" name="delete" class="btn btn-danger">Delete <%= data.specificDrive.driveName %></button>
-</form>
-<a class="btn btn-info" href="/drives/<%= data.specificDrive._id %>/edit" role="button">Edit the Car</a>
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-4">
-      <canvas id="myChart" width="100" height="100"></canvas>
-      <script type="text/javascript">
-      const data = <%- JSON.stringify(data) %>;
-
-      console.log('first drive',data);
-
-      const driveNames = [];
-      const driveDistances = [];
-      data.allDrives.forEach(function(drive){
-        // push all drive names into array
-        driveNames.push(drive.driveName)
-        driveDistances.push(drive.distance);
-      })
-      console.log(driveNames, driveDistances);
-      var ctx = document.getElementById('myChart').getContext('2d');
-      var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'pie',
-
-    // The data for our dataset
-    data: {
-        labels: driveNames,
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: ["red","yellow"],
-            borderColor: 'white',
-            data: driveDistances,
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-
-      </script>
-
-    </div>
-
-  </div>
-
-</div>
 
 </body>

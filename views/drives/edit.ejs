@@ -85,5 +85,7 @@
 <!-- <% if (typeof(errorMessage) != "undefined") { %>
     <div class="error-message"><%= errorMessage %></div>
   <% } %> -->
-
+  <form  action="/drives/<%= drive._id %>/delete" method="post">
+    <button type="submit" name="delete" class="btn btn-danger">Delete <%= drive.drivesName %></button>
+  </form>
 </body>

@@ -1,90 +1,106 @@
 
 <body>
-<h2>Add a Driving Route here!</h2>
 
 <div class="container makeCar">
+    <div class="row">
+<div class="col-xs-2">
+</div>
+<div class="col-xs-8"id="fuck">
+<div class="row">
+  <div class="col-xs-2">
+    <a  href="/profile" role="button" class="glyphicon glyphicon-menu-left"></a>
+  </div>
+  <div class="col-xs-8">
+    <h1>Create A Drive</h1>
+  </div>
+  <form class="form" action="/drives" method="POST">
+  <div class="col-xs-2">
+    <button class="btn btn-success"type="submit">Create Drive</button>
+  </div>
+</div>
   <div class="row">
-
-
-
-<form  action="/drives" method="POST">
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for=driveName> Enter the Name of Your Drive </label>
-  <div class="col-sm-10">
-  <input type="text" id="driveName" name="driveName">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="originAddress"> What is the starting address?  </label>
-
-  <div class="col-sm-10">
-  <input type="text" name="originAddress" id="originAddress">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="destinationAddress"> What is the ending address? </label>
-
-  <div class="col-sm-10">
-  <input type="text" name="destinationAddress" id="destinationAddress">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="distance"> How many miles is the commute? </label>
-
-  <div class="col-sm-10">
-  <input type="number" name="distance" id="distance">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="amountTaken"> How many times do you take this commute per week?  </label>
-
-  <div class="col-sm-10">
-  <input type="number" name="amountTaken" id="amountTaken">
-  </div>
-
-</div>
-
-<div class="form-group row">
-<label class="col-sm-2 col-form-label" for="amountTaken"> Which car do you take this route with?  </label>
-  <select name="carId" class="selectpicker">
-    <% car.forEach((car) => { %>
-        <option value="<%=car._id%>"><%= car.carName %></option>
-    <%  }) %>
-</select>
-</div>
-
-
-
-  <button class="btn btn-success"type="submit">Create Drive</button>
-
-    </form>
-  </div>
-  <div class="col-xs-3">
-  <% if (typeof(errors) !== "undefined"){ %>
-    <% for (let error in errors){ %>
-    <div class="error-message">
-      <li><%= errors[error].message %></li>
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5" >
+      <div class="form-group">
+        <label id="formLaneHdr" class="col-sm-12 control-label"for="driveName">Drive Name</label>
+        <div class="col-sm-10" id="formLaneInpt">
+          <input class="no-border"type="text" name="driveName" id=driveName value="" placeholder="Enter Drive Name">
+        </div>
       </div>
-    <% } %>
+    </div>
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5">
+      <div class="form-group">
+        <label id="formLaneHdr" class="col-sm-12 control-label"for="amountTaken">Which Car</label>
+        <div class="col-sm-12" id="formLaneInpt">
+          <select name="carId" class="custom-select">
+            <opction selected> Choose a Car </option>
+            <% car.forEach((car) => { %>
+                <option value="<%=car._id%>"><%= car.carName %></option>
+            <%  }) %>
+        </select>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-5" >
+    <div class="form-group">
+      <label id="formLaneHdr" class="col-sm-12 control-label"for="originAddress">Starting Address</label>
+      <div class="col-sm-10" id="formLaneInpt">
+        <input class="no-border"type="text" name="originAddress" id=originAddress value="" placeholder="Starting Address">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-5">
+      <div class="form-group">
+        <label id="formLaneHdr" class="col-sm-12 control-label"for="destinationAddress">Destination Address</label>
+        <div class="col-sm-10" id="formLaneInpt">
+          <input class="no-border"type="text" name="destinationAddress" id=originAddress value="" placeholder="Destination Address">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5" >
+      <div class="form-group">
+        <label id="formLaneHdr" class="col-sm-12 control-label"for="distance">Distance</label>
+        <div class="col-sm-10" id="formLaneInpt">
+          <input class="no-border"type="number" name="distance" id=distance value="" placeholder="How many miles?">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5">
+        <div class="form-group">
+          <label id="formLaneHdr" class="col-sm-12 control-label"for="amountTaken">Weekly Trips</label>
+          <div class="col-sm-10" id="formLaneInpt">
+            <input class="no-border"type="text" name="amountTaken" id=amountTaken value="" placeholder="Amount taken weekly">
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<% if (typeof(errorMessage) != "undefined") { %>
+    <div class="error-message"><%= errorMessage %></div>
   <% } %>
+</form>
+
+</div>
+
   </div>
 
 </div>
-<!-- <% if (typeof(errorMessage) != "undefined") { %>
-    <div class="error-message"><%= errorMessage %></div>
-  <% } %> -->
+<div class="col-xs-2">
+</div>
 
 </body>
