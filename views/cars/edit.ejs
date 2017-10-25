@@ -1,95 +1,113 @@
 <body>
-<h2>Edit Your Car!</h2>
 
-<div class="container makeCar">
+  <div class="container makeCar">
+    <div class="row">
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-8"id="fuck">
   <div class="row">
-
-
-
-<form  action="/cars/<%= car._id %>/edit" method="POST">
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for=carName> Enter the Name of Your Car </label>
-  <div class="col-sm-10">
-  <input type="text" id="carName" name="carName" value="<%=car.carName%>">
+    <div class="col-xs-2">
+      <a  href="/profile" role="button" class="glyphicon glyphicon-menu-left"></a>
+    </div>
+    <div class="col-xs-8">
+      <h1>Edit <i><%=car.carName%></i> </h1>
+    </div>
+    <form class="form" action="/cars/<%= car._id %>/edit" method="POST">
+    <div class="col-xs-2">
+      <button class="btn btn-primary" id="butnTxt1"type="submit">Save Car</button>
+    </div>
   </div>
+  <hr>
 
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="totAllotMiles"> How many miles are you alloted in your lease?  </label>
-
-  <div class="col-sm-10">
-  <input type="number" name="totAllotMiles" id="totAllotMiles"value="<%=car.totAllotMiles%>">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="currentOdom"> What is your Odometer's reading (miles)? </label>
-
-  <div class="col-sm-10">
-  <input type="number" name="currentOdom" id="currentOdom"value="<%=car.currentOdom%>">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="leaseDurationMonths"> How many months are in your lease (e.g. 36, 48, 60)? </label>
-
-  <div class="col-sm-10">
-  <input type="number" name="leaseDurationMonths" id="leaseDurationMonths" value="<%=car.leaseDurationMonths%>">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="leaseExpires"> What day does your lease expire?  </label>
-
-  <div class="col-sm-10">
-  <input type="date" name="leaseExpires" id="leaseExpires" value="<%=car.leaseExpires%>">
-  </div>
-
-</div>
-
-<div class="form-group row">
-
-  <label class="col-sm-2 col-form-label" for="imageUrl"> Image Url  </label>
-
-  <div class="col-sm-10">
-  <input type="text" name="imageUrl" id="imageUrl" value="<%=car.imageUrl%>">
-  </div>
-
-</div>
-
-
-  <button class="btn btn-success"type="submit">Save Car</button>
-
-    </form>
-  </div>
-  <div class="col-xs-3">
-  <% if (typeof(errors) !== "undefined"){ %>
-    <% for (let error in errors){ %>
-    <div class="error-message">
-      <li><%= errors[error].message %></li>
+    <div class="row">
+      <div class="col-xs-1">
       </div>
+      <div class="col-xs-5" >
+        <div class="form-group">
+          <label id="formLaneHdr" class="col-sm-12 control-label"for="carName">Car Name</label>
+          <div class="col-sm-10" id="formLaneInpt">
+            <input class="no-border"type="text" name="carName" id="carName" value="<%=car.carName%>" placeholder="What Car is this?">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-1">
+      </div>
+      <div class="col-xs-5">
+        <div class="form-group">
+          <label id="formLaneHdr" class="col-sm-12 control-label"for="currentOdom">Odometer Reading</label>
+          <div class="col-sm-12" id="formLaneInpt">
+            <input class="no-border"type="number" name="currentOdom" id="currentOdom" value="<%=car.currentOdom%>" placeholder="Current car mileage?  ">
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5" >
+      <div class="form-group">
+        <label id="formLaneHdr" class="col-sm-12 control-label"for="totAllotMiles">Total Mileage Allowed</label>
+        <div class="col-sm-10" id="formLaneInpt">
+          <input class="no-border"type="number" name="totAllotMiles" id=totAllotMiles value="<%=car.totAllotMiles%>" placeholder="Mileage alloted">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-5">
+        <div class="form-group">
+          <label id="formLaneHdr" class="col-sm-12 control-label"for="leaseDurationMonths">Lease Duration (months)</label>
+          <div class="col-sm-10" id="formLaneInpt">
+            <input class="no-border"type="number" name="leaseDurationMonths" id="leaseDurationMonths" value="<%=car.leaseDurationMonths%>" placeholder="# of months in lease">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-1">
+      </div>
+      <div class="col-xs-5" >
+        <div class="form-group">
+          <label id="formLaneHdr" class="col-sm-12 control-label"for="leaseExpires">Lease Expiration Date</label>
+          <div class="col-sm-10" id="formLaneInpt">
+            <input class="no-border"type="date" name="leaseExpires" id="leaseExpires" value="<%=car.leaseExpires%>" placeholder="When does lease end?">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-1">
+      </div>
+      <div class="col-xs-5">
+          <div class="form-group">
+            <label id="formLaneHdr" class="col-sm-12 control-label"for="imageUrl">Image URL of Car</label>
+            <div class="col-sm-10" id="formLaneInpt">
+              <input class="no-border"type="text" name="imageUrl" id="imageUrl" value="<%=car.imageUrl%>" placeholder="Paste URL here!">
+            </div>
+            <div class="">
+              <img src="<%=car.imageUrl%>" alt="..." class="img-thumbnail">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <% if (typeof(errorMessage) != "undefined") { %>
+      <div class="error-message"><%= errorMessage %></div>
     <% } %>
-  <% } %>
+  </form>
+        <div class="col-xs-2">
+          <form  id="fuck"action="/cars/<%= car._id %>/delete" method="post">
+            <button id="butnTxt1" type="submit" name="delete" class="btn btn-danger center-block"><span class="glyphicon glyphicon-trash"></span> Delete Car</button>
+          </form>
+        </div>
+  </div>
   </div>
 
-</div>
-<!-- <% if (typeof(errorMessage) != "undefined") { %>
-    <div class="error-message"><%= errorMessage %></div>
-  <% } %> -->
 
-  <br>
-  <br>
-  <br>
-  <form  action="/cars/<%= car._id %>/delete" method="post">
-    <button type="submit" name="delete" class="btn btn-danger">Delete <%= car.carName %></button>
-  </form>
+
+
+  </body>
+
+
+
+
+
 </body>

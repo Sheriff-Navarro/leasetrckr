@@ -18,7 +18,12 @@ if($("#hiddenPaceDiv").val() >= 0 ){
       $("#yayOrNay").css("color", "white");
       $("#yayOrNay").append("Yikes! Your balance is negative ("+hiddenPaceDiv+") miles.");
 
-    };
+    } else {
+      $("#yayOrNay").css("border-color", "rgba(219, 197, 76, 1)");
+      $("#yayOrNay").css("background-color", "rgba(219, 197, 76, 1)");
+      $("#yayOrNay").css("color", "white");
+      $("#yayOrNay").append("UH OH! Looks Like you never saved a date when you edited your car Go back and save the lease expiration date!");
+    }
 };
 pacingFunction();
 
