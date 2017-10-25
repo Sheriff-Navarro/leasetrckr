@@ -16,7 +16,7 @@
     <div class="col-xs-8">
       <h1>Edit <i><%=drive.driveName%></i> Drive</h1>
     </div>
-    <form class="form" action="/drives" method="POST">
+    <form class="form" action="/drives/<%=drive._id%>" method="POST">
     <div class="col-xs-2">
       <button id="butnTxt"class="btn btn-primary"type="submit">Save Drive</button>
     </div>
