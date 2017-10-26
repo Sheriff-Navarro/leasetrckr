@@ -468,7 +468,10 @@ margin-bottom: 15px;
   padding: 12px;
   font-size: 25px;
   margin:20px 0;
-  background-color:#ef9058;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(239,144,88,1);
+  background-color:rgba(239,144,88,.7);
   border-radius: 5px;
   color: white;
 }
@@ -480,10 +483,26 @@ margin-bottom: 15px;
   font-size: 25px;
   margin:20px 0;
   background-color:#efcb57;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(239,203,87,1);
+  background-color:rgba(239,203,87,.9);
+
   border-radius: 5px;
   color: white;
 }
 
 #profileCreate{
   margin-top: 15px;
+}
+
+#welcomeContainer{
+  padding: 10px;
+  background-color: white;
+  /*border: grey;
+  border-width: 1px;*/
+  box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
+  margin: 15px;
+  background-color: white;
+  text-align: center;
 }

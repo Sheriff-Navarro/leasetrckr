@@ -27,36 +27,66 @@ if($("#hiddenPaceDiv").val() >= 0 ){
 };
 pacingFunction();
 
-// $("#yayOrNay").append("Great Job You have an extra ",$("#hiddenPaceDiv").val() " of unused miles.");
-
-// $(document).ready(function(){
-//
-//
-// function pacingFunction(){
-//   const hiddenPaceDiv = $("#hiddenPaceDiv").val()
-//   console.log(hiddenPaceDiv);
-// if($("#hiddenPaceDiv").val() >= 0 ){
-//   console.log('should be positive');
-//   $("#fuck").css("border-color", "rgb(115, 181, 101)");
-//   $("#fuck").css("background-color-color", "rgb(115, 181, 101), .4");
-//
-// } else if ($("#hiddenPaceDiv").val() < 0){
-//       console.log('should be negative');
-//       $("#yayOrNay").css("background-color", "red");
-//     };
+// function welcomePageLoginSignup() {
+//  var click = 0;
+//  $("#newOrExist2").on("click", function(){
+//    click += 1
+//    console.log(click);
+//    if (click%2 == 0){
+//     //  $("#whichUser").html(<form action="/login" method="post">
+//     //    <div class="form-group">
+//     //      <label for="login">Email Address</label>
+//     //      <input type="text" name="email" class="form-control">
+//     //    </div>
+//      //
+//     //    <div class="form-group">
+//     //      <label for="password">Password</label>
+//     //      <input type="password" name="password" class="form-control">
+//     //    </div>
+//      //
+//     //    <button class="btn btn-success"type="submit">Login</button>
+//     //  </form>
+// } else if (click%2 != 0) {
+//   $("#whichUser").html('<form action ="/signup" method="post"> <div class="form-group"> <label for="email">Email</label><input type="text" name="email" class="form-control"> </div> <div> class="form-group"> <label for="password">Password</label><input type="password" name="password" class="form-control"> </div>  <button class="btn btn-success" type="submit">Signup</button></form>')
+//     }
+//   })
 // };
-// pacingFunction();
-//
-//
-//
 
+
+
+function welcomePageSignup(){
+  $("#newOrExist2").on("click", function(){
+    $("#whichUser").html('<form action ="/signup" method="post"> <div class="form-group"> <label for="email">Email Address</label><input type="text" name="email" class="form-control"></div> <div class="form-group"><label for="password">Password</label><input type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Signup</button>')
+  })
+}
+
+welcomePageSignup();
+
+function welcomePageLogin(){
+  $("#newOrExist").on("click", function(){
+    $("#whichUser").html('<form action ="/login" method="post"> <div class="form-group"> <label for="email">Email Address</label><input type="text" name="email" class="form-control"></div> <div class="form-group"><label for="password">Password</label><input type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Login</button>')
+  })
+}
+
+welcomePageLogin();
+// <%if (typeof(errorMessage) !="undefined") {%><div class="error-message"><%=errorMessage%></div> <%}%>
 //
-//
-//
-//
-//
-// })
-//
+// <!-- <form action="/signup" method="post">
+//   <div class="form-group">
+//     <label for="email">Email</label>
+//     <input type="text" name="email" class="form-control">
+//   </div>
+//   <div class="form-group">
+//     <label for="password">Password</label>
+//     <input type="password" name="password" class="form-control">
+//   </div>
+//   <% if (typeof(errorMessage) != "undefined") { %>
+// <div class="error-message"><%= errorMessage %></div>
+// <% } %>
+//   <button class="btn btn-success" type="submit">Signup</button>
+// </form> -->
+
+
 
 
 
