@@ -2,6 +2,9 @@
 logs
 *.log
 
+#Dev environment and heroku
+.env
+
 # Runtime data
 pids
 *.pid

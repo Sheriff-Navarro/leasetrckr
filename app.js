@@ -1,5 +1,5 @@
 // app.js
-
+require("dotenv").config();
 const express            = require('express');
 const path               = require('path');
 const favicon            = require('serve-favicon');
@@ -22,7 +22,8 @@ const Car                = require('./models/car');
 const bcrypt             = require('bcrypt');
 
 
-mongoose.connect('mongodb://localhost:27017/leasetrckr');
+// mongoose.connect('mongodb://localhost:27017/leasetrckr');
+mongoose.connect(process.env.MONGODB_URI);
 
 
 const app = express();
