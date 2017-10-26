@@ -1,19 +1,24 @@
-<a class="btn btn-primary" href="/cars/new">Create a Car</a> <a class="btn btn-primary" href="/drives/new">Create a Drive</a>
+
+    <div class="container-xs-4" >
+    <div class="row">
+      <div class="col-xs-4">
+      </div>
+      <% if(car.length==0) { %>
+      <div class="col-xs-4 " id="profileCreate">
+      <a id="profileBtn1" class="center-block" href="/cars/new">Create a Car</a>
+      </div>
+      <% } else { %>
+        <div class="col-xs-4 " id="profileCreate">
+        <a id="profileBtn1" class="" href="/cars/new">Create a Car</a>
+        <a id="profileBtn2" class="" href="/drives/new">Create a Drive</a>
+        </div>
+      <% }; %>
+      <div class="col-xs-4">
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
-      <!-- <% car.forEach((car) => { %>
-
-        <div class="col-xs-5"id="profileCar">
-
-          <h2><%=car.carName%></h2>
-
-          <p>Allotted Miles</p> <p><%=car.allotMileageTillNow%></p>
-          <p>Odometer Reading</p> <p><%=car.currentOdom%></p>
-          <br>
-          <a class="btn btn-info" href="/cars/<%= car._id %>" role="button">View Car</a>
-          <br>
-        </div>
-        <%  }) %> -->
         <% car.forEach((car) => { %>
           <div class="col-xs-5" id="profileCar">
             <div class="row">
