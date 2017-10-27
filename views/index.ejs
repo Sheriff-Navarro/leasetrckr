@@ -4,24 +4,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body id='homePage'>
-<!-- <button type="button" class="btn btn-primary" href="/new" name="button">Create new Car</button> -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-1">
         </div>
-        <div class="col-sm-10" id=welcomeContainer>
-            <div class="col-sm-5">
-              <h2>Welcome</h2>
-              <p>Smaller text talking about the app</p>
+        <div class="col-sm-10 container-fluid" id=welcomeContainer>
+            <div class="col-sm-5" id="welcomeText">
+              <h1>Welcome to LeaseTrckr</h1>
+              <p>LeaseTrckr helps you gain insights to your car lease to save you money. Forecast how many miles you'll be driving and learn how that correlates to how many miles your lease is allotted.</p>
             </div>
             <div class="col-sm-7">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 ">
                   <div class="col-sm-6" id="newOrExist">
-                    login
+                    Login
                   </div>
                   <div class="col-sm-6" id="newOrExist2">
-                    signup
+                    Signup
                   </div>
                 </div>
               </div>
@@ -30,31 +29,16 @@
                   <form action="/login" method="post">
                     <div class="form-group">
                       <label for="login">Email Address</label>
-                      <input type="text" name="email" class="form-control">
+                      <input id="whichUserInput"type="text" name="email" class="form-control">
                     </div>
 
                     <div class="form-group">
                       <label for="password">Password</label>
-                      <input type="password" name="password" class="form-control">
+                      <input id="whichUserInput" type="password" name="password" class="form-control">
                     </div>
 
                     <button class="btn btn-success"type="submit">Login</button>
                   </form>
-
-                    <!-- <form action="/signup" method="post">
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control">
-                      </div>
-                      <% if (typeof(errorMessage) != "undefined") { %>
-                    <div class="error-message"><%= errorMessage %></div>
-                    <% } %>
-                      <button class="btn btn-success" type="submit">Signup</button>
-                    </form> -->
                 </div>
               </div>
             </div>

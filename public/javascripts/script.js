@@ -56,16 +56,24 @@ pacingFunction();
 
 function welcomePageSignup(){
   $("#newOrExist2").on("click", function(){
-    $("#whichUser").html('<form action ="/signup" method="post"> <div class="form-group"> <label for="email">Email Address</label><input type="text" name="email" class="form-control"></div> <div class="form-group"><label for="password">Password</label><input type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Signup</button>')
-  })
+    $("#whichUser").html('<form action ="/signup" method="post"> <div class="form-group"> <label for="email">Email Address</label><input type="text" name="email" class="form-control" id="whichUserInput"></div> <div class="form-group"><label for="password">Password</label><input id="whichUserInput" type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Signup</button>');
+$("#newOrExist2").css("border-bottom", "1px solid #f45942");
+$("#newOrExist2").css("color", "rgb(244, 89, 66)");
+$("#newOrExist").css("border-bottom", "none");
+$("#newOrExist").css("color", "rgb(160, 152, 151)");
+});
 }
 
 welcomePageSignup();
 
 function welcomePageLogin(){
   $("#newOrExist").on("click", function(){
-    $("#whichUser").html('<form action ="/login" method="post"> <div class="form-group"> <label for="email">Email Address</label><input type="text" name="email" class="form-control"></div> <div class="form-group"><label for="password">Password</label><input type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Login</button>')
-  })
+    $("#whichUser").html('<form action ="/login" method="post"> <div class="form-group"> <label for="email">Email Address</label><input id="whichUserInput" type="text" name="email" class="form-control"></div> <div class="form-group"><label for="password">Password</label><input id="whichUserInput" type="text" name="password" class="form-control"></div><button class="btn btn-success" type="submit">Login</button>')
+    $("#newOrExist").css("border-bottom", "1px solid #f45942");
+    $("#newOrExist").css("color", "rgb(244, 89, 66)");
+    $("#newOrExist2").css("border-bottom", "none");
+    $("#newOrExist2").css("color", "rgb(160, 152, 151)");
+  });
 }
 
 welcomePageLogin();

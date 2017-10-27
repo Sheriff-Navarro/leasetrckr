@@ -5,17 +5,6 @@ body {
   background-color: #becad3;
 }
 
-/*#homePage{
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    font-family: 'Abel', sans-serif;
-    background-color: #becad3;
-    background: url(/images/home-street1.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}*/
 
 
 html, body {
@@ -497,12 +486,43 @@ margin-bottom: 15px;
 }
 
 #welcomeContainer{
-  padding: 10px;
+  padding: 0;
   background-color: white;
-  /*border: grey;
-  border-width: 1px;*/
+
   box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
   margin: 15px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, .7);
   text-align: center;
+}
+
+#welcomeText{
+    background-color: green;
+    font-family: 'Pacifico';
+    color: white;
+    padding-bottom: 100px;
+}
+
+#welcomeText p{
+  font-size: 23px;
+  color: white;
+  padding:30px 0 0 0;
+  font-family: 'Abel';
+}
+
+#newOrExist{
+  margin: 20px 0 40px 0;
+  font-size:30px;
+  color: rgb(244, 89, 66);
+  border-bottom: 1px solid #f45942;
+}
+
+#newOrExist2{
+  margin: 20px 0 40px 0;
+  font-size:30px;
+  color: rgb(160, 152, 151);
+  /*border-bottom: 1px solid #f45942;*/
+}
+
+#whichUser, #whichUserInput{
+  font-size: 20px;
 }
