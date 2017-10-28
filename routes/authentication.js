@@ -19,7 +19,7 @@ authRoutes.get('/signup', ensureLoggedOut(), (req, res) => {
 
 // routes/authentication.js
 authRoutes.post('/signup', ensureLoggedOut(), passport.authenticate('local-signup', {
-  successRedirect : '/',
+  successRedirect : '/profile',
   failureRedirect : '/signup'
 }));
 
