@@ -28,11 +28,11 @@
         <div>Current Allotted Mileage</div>
         <div id="specDet"><%= car.allotMileageTillNow%></div>
       </div>
-      <div class="col-xs-4" id="spec">
+      <div class="col-xs-4 updateOdom" id="spec">
         <div>Current Odometer Reading</div>
         <form action="/cars/<%= car._id %>" method="POST">
           <input type="number" name="currentOdom"class="form-control mb-2 mb-sm-0 odomUpd" id="currentOdom" value="<%=car.currentOdom%>">
-          <span><button id="updateOdom"type="submit" class="btn btn-warning">Update Odomoeter</button></span>
+          <span><button id=""type="submit" class="btn btn-warning ">Update Odomoeter</button></span>
         </form>
         <!-- <div id="specDet"><%= car.currentOdom %></div> -->
       </div>
@@ -70,9 +70,9 @@
   </div>
 </div>
 
-<div class="containterGraph">
+<div class="containterGraph" hidden="true">
   <div class="row">
-    <div class="xs-sm-12">
+    <div class="col-sm-12">
       <canvas id="myChart" ></canvas>
       <script>
       var ctx = document.getElementById("myChart").getContext("2d");
@@ -100,6 +100,7 @@
               }]
           },
           options: {
+              animation: false,
               scales: {
                   yAxes: [{
                       ticks: {
