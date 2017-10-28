@@ -59,9 +59,12 @@ function odomBounce(){
 }
 odomBounce();
 odomBounce()
-
-
-
-
+// 
+// function viewDetails(){
+//   $("#viewDetails").on("click", function(){
+//   $(".extraDets").html('<div class="row"><div class="col-sm-4" id="spec"><div>Daily Mileage Allowed</div><div id="specDet">' + $("#hiddenPaceDiv1").val() + '</div> </div><div class="col-sm-4" id="spec"><div>Monthly Mileage Allowed</div><div id="specDet>' + $("#hiddenPaceDiv2").val() + '</div></div><div class="col-sm-4" id="spec"><div>Yearly Mileage Allowed</div><div id="specDet>' + $("#hiddenPaceDiv3").val() + '</div></div>"')
+//   })
+// }
+// viewDetails();
 
 })
