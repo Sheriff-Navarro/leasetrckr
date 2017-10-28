@@ -240,7 +240,7 @@ text-align: center;
   /*border-style: solid;
   border-width: thin;*/
   box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 #fuck1{
   margin-top: 15px;
@@ -275,16 +275,26 @@ text-align: center;
 }
 
 #spec{
-  margin-top: 10px;
+  margin-top: 60px;
   margin-bottom: 10px;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #specDet{
   text-align: center;
+  padding-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
+#currentOdom{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+
+}
 .glyphicon-edit{
   font-size: 20px;
   padding-top: 15px;
@@ -555,4 +565,12 @@ margin-bottom: 15px;
 
 #whichUser, #whichUserInput{
   font-size: 20px;
+}
+
+#viewDetails{
+  text-align: center;
+  font-size: 22px;
+  color:#41b2f4;
+  font-weight: 600;
+
 }

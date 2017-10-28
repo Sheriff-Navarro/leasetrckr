@@ -10,6 +10,7 @@ if($("#hiddenPaceDiv").val() >= 0 ){
   $("#yayOrNay").css("background-color", "rgba(115, 181, 101, .4)");
   $("#yayOrNay").css("color", "white");
   $("#yayOrNay").append("Sweet! You have an extra "+hiddenPaceDiv+" unused miles.");
+  $(".balance").css("color", "green");
 
 } else if ($("#hiddenPaceDiv").val() < 0){
       console.log('should be negative');
@@ -17,6 +18,7 @@ if($("#hiddenPaceDiv").val() >= 0 ){
       $("#yayOrNay").css("background-color", "rgba(224, 80, 80, .4)");
       $("#yayOrNay").css("color", "white");
       $("#yayOrNay").append("Yikes! Your balance is negative ("+hiddenPaceDiv+") miles.");
+      $(".balance").css("color", "red");
 
     } else {
       $("#yayOrNay").css("border-color", "rgba(219, 197, 76, 1)");

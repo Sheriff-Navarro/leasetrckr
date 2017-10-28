@@ -29,11 +29,11 @@ const CarSchema = new Schema({
 //   return moment(this.deadline).format('YYYY-MM-DD');
 // });
 CarSchema.virtual('yearlyAllowedMileage').get(function(){
-  return this.totAllotMiles / this.leaseYears;
+  return Math.floor(this.totAllotMiles / this.leaseYears);
 });
 
 CarSchema.virtual('monthlyAllowedMileage').get(function(){
-  return this.totAllotMiles / this.leaseDurationMonths;
+  return Math.floor(this.totAllotMiles / this.leaseDurationMonths);
 });
 
 CarSchema.virtual('leaseYears').get(function(){
